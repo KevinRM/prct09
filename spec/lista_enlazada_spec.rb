@@ -73,5 +73,9 @@ describe ListaEnlazada do
     it "Libro tiene un Autor" do
       expect(@objeto_libro.get_autor()).to eq("Kevin_libro")
     end
+    
+    it "Libro tiene un ISBN" do
+      expect(@objeto_libro.get_isbn()).to eq("234112")
+    end
   end
 end
