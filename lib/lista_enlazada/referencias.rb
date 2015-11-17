@@ -17,3 +17,7 @@ class Referencia
        @publicacion
    end
 end
+
+class Libro < Referencia
+    
+end
