@@ -48,8 +48,16 @@ describe ListaEnlazada do
       @objeto_referencia = Referencia.new("Kevin","titulo_referencia","17-11-2015")
     end
     
-    it "La clase referencia tiene un titulo" do
+    it "La clase referencia tiene un autor" do
       expect(@objeto_referencia.get_autor()).to eq("Kevin")
+    end
+    
+    it "La clase referencia tiene un titulo" do
+      expect(@objeto_referencia.get_titulo()).to eq("titulo_referencia")
+    end
+    
+    it "La clase referencia tiene una fecha de publicacion" do
+      expect(@objeto_referencia.get_publicacion()).to eq("17-11-2015")
     end
   end
 end
