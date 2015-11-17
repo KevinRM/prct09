@@ -63,11 +63,15 @@ describe ListaEnlazada do
   
   context "Pruebas para la clase de herencia Libro" do
     before :each do
-      @objeto_libro = Libro.new("Kevin_libro","titulo_libro","17-11-2015_libro")
+      @objeto_libro = Libro.new("Kevin_libro","titulo_libro","17-11-2015_libro","234112")
     end
     
     it "Responde a objeto de herencia de la clase Referencia" do
       expect(@objeto_libro).is_a? Referencia
+    end
+    
+    it "Libro tiene un Autor" do
+      expect(@objeto_libro.get_autor()).to eq("Kevin_libro")
     end
   end
 end
