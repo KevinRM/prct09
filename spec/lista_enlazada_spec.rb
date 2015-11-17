@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe ListaEnlazada do
-  context "Node" do
+  context "Pruebas de Nodos" do
     before :all do
-      @objeto_nodo = Node.new(1)
+      @objeto_nodo = Node.new(1,nil,nil)
     end
         
     it "Debe existir un Nodo de la lista con sus datos" do
