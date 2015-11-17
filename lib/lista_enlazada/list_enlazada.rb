@@ -20,4 +20,10 @@ class List
             @cabeza = nodo
         end
     end
+    
+    def add_varios(x)
+        x.each do |valor|
+            add_nodo(valor)
+        end
+    end
 end
