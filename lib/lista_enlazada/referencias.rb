@@ -23,4 +23,8 @@ class Libro < Referencia
         super(autor,titulo,publicacion)
         @isbn = isbn
     end
+    
+    def get_isbn()
+        @isbn
+    end
 end
