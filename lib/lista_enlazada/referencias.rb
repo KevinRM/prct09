@@ -39,3 +39,14 @@ class Revista < Referencia
         @issn
     end
 end
+
+class Periodico < Referencia
+    def initialize(autor,titulo,publicacion,lugar)
+        super(autor,titulo,publicacion)
+        @lugar = lugar
+    end
+    
+    def get_lugar()
+        @lugar
+    end
+end
