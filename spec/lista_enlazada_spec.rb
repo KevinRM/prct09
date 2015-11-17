@@ -43,3 +43,15 @@ describe ListaEnlazada do
     end
   end
 end
+
+describe Jerarquia do
+  context "Pruebas de clase Referencia" do
+    before :each do
+      @objeto_referencia = Referencia.new("Kevin","titulo_referencia","17-11-2015")
+    end
+    
+    it "La clase referencia tiene un titulo" do
+      expect(@objeto_referencia.autor).to eq(Kevin)
+    end
+  end
+end
