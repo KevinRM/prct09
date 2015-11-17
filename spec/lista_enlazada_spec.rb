@@ -29,5 +29,11 @@ describe ListaEnlazada do
         
       expect(@lista.cabeza.value).to eq(1)
     end
+    
+    it "Insercion de varios elementos" do
+      @lista.add_varios([2,3,4,5])
+            
+      expect(@lista.cabeza.prev.value).to eq(4)
+    end
   end
 end
