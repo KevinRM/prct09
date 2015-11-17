@@ -60,4 +60,14 @@ describe ListaEnlazada do
       expect(@objeto_referencia.get_publicacion()).to eq("17-11-2015")
     end
   end
+  
+  context "Pruebas para la clase de herencia Libro" do
+    before :each do
+      @objeto_libro = Libro.new("Kevin_libro","titulo_libro","17-11-2015_libro")
+    end
+    
+    it "Responde a objeto de herencia" do
+      expect(@objeto_libro).is_a? Referencia
+    end
+  end
 end
