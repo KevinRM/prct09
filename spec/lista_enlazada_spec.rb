@@ -66,7 +66,7 @@ describe ListaEnlazada do
       @objeto_libro = Libro.new("Kevin_libro","titulo_libro","17-11-2015_libro","ISBN_11111")
     end
     
-    it "Responde a objeto de herencia de la clase Referencia" do
+    it "Es un objeto de herencia de la clase Referencia" do
       expect(@objeto_libro).is_a? Referencia
     end
     
@@ -84,7 +84,7 @@ describe ListaEnlazada do
       @objeto_revista = Revista.new("Kevin_revista","titulo_revista","17-11-2015_revista","ISSN_22222")
     end
     
-    it "Responde a objeto de herencia de la clase Referencia" do
+    it "Es un objeto de herencia de la clase Referencia" do
       expect(@objeto_revista).is_a? Referencia
     end
     
@@ -94,6 +94,24 @@ describe ListaEnlazada do
     
     it "Revista tiene un ISSN" do
       expect(@objeto_revista.get_issn()).to eq("ISSN_22222")
+    end
+  end
+  
+  context "Pruebas para la clase de herencia Periódico" do
+    before :each do
+      @objeto_periodico = Periodico.new("Kevin_periodico","titulo_periodico","17-11-2015_periodico","La Laguna")
+    end
+    
+    it "Es un objeto de herencia de la clase Referencia" do
+      expect(@objeto_periodico).is_a? Referencia
+    end
+    
+    it "Periodico tiene un Autor" do
+      expect(@objeto_periodico.get_autor()).to eq("Kevin_periodico")
+    end
+    
+    it "Periodico tiene un Lugar" do
+      expect(@objeto_periodico.get_lugar()).to eq("La Laguna")
     end
   end
 end
