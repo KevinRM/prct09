@@ -19,5 +19,8 @@ class Referencia
 end
 
 class Libro < Referencia
-    
+    def initialize(autor,titulo,publicacion,isbn)
+        super(autor,titulo,publicacion)
+        @isbn = isbn
+    end
 end
