@@ -114,4 +114,22 @@ describe ListaEnlazada do
       expect(@objeto_periodico.get_lugar()).to eq("La Laguna")
     end
   end
+  
+  context "Pruebas para la clase de herencia documento Electronico" do
+    before :each do
+      @objeto_elect = Doc_elect.new("Kevin_documento_electronico","titulo_electronico","17-11-2015_documento_electronico","https://periodico.com")
+    end
+    
+    it "Es un objeto de herencia de la clase Referencia" do
+      expect(@objeto_elect).is_a? Referencia
+    end
+    
+    it "Documento electronico tiene un Autor" do
+      expect(@objeto_elect.get_autor()).to eq("Kevin_documento_electronico")
+    end
+    
+    it "Documento electronico tiene una URL" do
+      expect(@objeto_elect.get_url()).to eq("https://periodico.com")
+    end
+  end
 end
