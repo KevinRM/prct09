@@ -28,3 +28,14 @@ class Libro < Referencia
         @isbn
     end
 end
+
+class Revista < Referencia
+    def initialize(autor,titulo,publicacion,issn)
+        super(autor,titulo,publicacion)
+        @issn = issn
+    end
+    
+    def get_issn()
+        @issn
+    end
+end
