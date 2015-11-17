@@ -35,5 +35,11 @@ describe ListaEnlazada do
             
       expect(@lista.cabeza.prev.value).to eq(4)
     end
+    
+    it "Extraccion del primer elemento de la lista" do
+      elemento_extraido = @lista.get_nodo()
+            
+      expect(elemento_extraido).to eq(1)
+    end
   end
 end
