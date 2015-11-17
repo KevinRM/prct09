@@ -50,3 +50,14 @@ class Periodico < Referencia
         @lugar
     end
 end
+
+class Doc_elect < Referencia
+    def initialize(autor,titulo,publicacion,url)
+        super(autor,titulo,publicacion)
+        @url = url
+    end
+    
+    def get_url()
+        @url
+    end
+end
