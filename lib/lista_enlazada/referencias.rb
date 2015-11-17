@@ -8,4 +8,12 @@ class Referencia
    def get_autor
        @autor
    end
+   
+   def get_titulo
+       @titulo
+   end
+   
+   def get_publicacion
+       @publicacion
+   end
 end
