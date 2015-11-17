@@ -1,1 +1,23 @@
 Node = Struct.new(:value, :prev, :next)
+
+class List
+    attr_accessor :cabeza, :cola
+    
+    def initialize()
+        @cabeza = nil
+        @cola = nil
+    end
+    
+    def add_nodo(x)
+        nodo = Node.new(x,nil,nil)
+        
+        if(@cabeza == nil && @cola == nil)
+            @cabeza = nodo
+            @cola = nodo
+        else
+            @cabeza.next = nodo
+            nodo.prev = @cabeza
+            @cabeza = nodo
+        end
+    end
+end
