@@ -26,4 +26,13 @@ class List
             add_nodo(valor)
         end
     end
+    
+    def get_nodo()
+        x = @cola
+        @cola = @cola.next
+        @cola.prev = nil
+        
+        x.next = nil
+        return x.value
+    end
 end
