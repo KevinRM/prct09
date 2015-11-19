@@ -70,6 +70,10 @@ describe ListaEnlazada do
       expect(@objeto_libro).is_a? Referencia
     end
     
+    it "No es un objeto de la clase Revista" do
+      expect(@objeto_elect.respond_to? "Revista").to eq false
+    end
+    
     it "Libro tiene un Autor" do
       expect(@objeto_libro.get_autor()).to eq("Kevin_libro")
     end
@@ -86,6 +90,10 @@ describe ListaEnlazada do
     
     it "Es un objeto de herencia de la clase Referencia" do
       expect(@objeto_revista).is_a? Referencia
+    end
+    
+    it "No es un objeto de la clase Libro" do
+      expect(@objeto_elect.respond_to? "Libro").to eq false
     end
     
     it "Revista tiene un Autor" do
@@ -106,6 +114,10 @@ describe ListaEnlazada do
       expect(@objeto_periodico).is_a? Referencia
     end
     
+    it "No es un objeto de la clase Revista" do
+      expect(@objeto_elect.respond_to? "Revista").to eq false
+    end
+    
     it "Periodico tiene un Autor" do
       expect(@objeto_periodico.get_autor()).to eq("Kevin_periodico")
     end
@@ -122,6 +134,10 @@ describe ListaEnlazada do
     
     it "Es un objeto de herencia de la clase Referencia" do
       expect(@objeto_elect).is_a? Referencia
+    end
+    
+    it "No es un objeto de la clase Periodico" do
+      expect(@objeto_elect.respond_to? "Periodico").to eq false
     end
     
     it "Documento electronico tiene un Autor" do
