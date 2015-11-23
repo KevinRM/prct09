@@ -1,6 +1,7 @@
 Node = Struct.new(:value, :prev, :next)
 
 class List
+    include Enumerable
     attr_accessor :cabeza, :cola
     
     def initialize()
@@ -34,5 +35,14 @@ class List
         
         x.next = nil
         return x.value
+    end
+    
+    def each
+        if(@cabeza != @cola)
+            yield @cola.value
+            @cola = @cola.next
+        else
+            yield @cabeza.value
+        end
     end
 end

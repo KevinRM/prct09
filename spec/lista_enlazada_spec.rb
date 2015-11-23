@@ -180,9 +180,9 @@ describe ListaEnlazada do
   
   context "Lista enumerable" do
     before :each do
-      @lista_1 = Lista.new()
-      @lista_1.add_varios([6,8,7,5,1,9])
-      @lista_2 = Lista.new()
+      @lista_1 = List.new()
+      @lista_1.add_varios([2,3])
+      @lista_2 = List.new()
     end
     
     it "Comprobando el metodo all con una lista con contenido" do
