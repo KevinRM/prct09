@@ -200,5 +200,9 @@ describe ListaEnlazada do
     it "Comprobando el metodo any con una lista SIN contenido" do
       expect(@lista_2.any?).to eq(false)
     end
+    
+    it "Comprobando min" do
+      expect(@lista_1.min).to eq(2)
+    end
   end
 end
