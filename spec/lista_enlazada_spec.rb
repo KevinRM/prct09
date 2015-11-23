@@ -154,6 +154,7 @@ describe ListaEnlazada do
       @libro_1 = Libro.new("Pepe Martinez","Ave","23-11-2015","ISBN_12856336563")
       @libro_2 = Libro.new("Marta Flores","Estampa","23-11-2015","ISBN_62856294")
       @revista_1 = Revista.new("Lola Estebez","Comidas","4-5-2008","ISSN_73445754")
+      @doc_elect_1 = Doc_elect.new("Abian Fernandez","Willson","5-1-1800","https://periodico.com/willson")
     end
     
     it "El titulo de libro Ave es menor que el titulo de libro Estampa" do
@@ -164,8 +165,12 @@ describe ListaEnlazada do
       expect(@libro_1 > @libro_2).to eq(false)
     end
     
-    it "El titulo de Revista Comidas es menor que el titulo de libro Estampa" do
+    it "El titulo de Revista Comidas es menor o igual que el titulo de libro Estampa" do
       expect(@revista_1 <= @libro_2).to eq(true)
+    end
+    
+    it "El titulo de Documento electronico Willson es mayor o igual que el titulo de Revista Comidas" do
+      expect(@doc_elect_1 >= @revista_1).to eq(true)
     end
   end
 end
