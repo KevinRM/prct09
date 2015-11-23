@@ -153,14 +153,19 @@ describe ListaEnlazada do
     before :each do
       @libro_1 = Libro.new("Pepe Martinez","Ave","23-11-2015","ISBN_12856336563")
       @libro_2 = Libro.new("Marta Flores","Estampa","23-11-2015","ISBN_62856294")
+      @revista_1 = Revista.new("Lola Estebez","Comidas","4-5-2008","ISSN_73445754")
     end
     
-    it "El titulo Ave es menor que el titulo Estampa" do
+    it "El titulo de libro Ave es menor que el titulo de libro Estampa" do
       expect(@libro_1 < @libro_2).to eq(true)
     end
     
-    it "El titulo Estampa es menor que el titulo Ave" do
+    it "El titulo de libro Estampa es menor que el titulo de libro Ave" do
       expect(@libro_1 > @libro_2).to eq(false)
+    end
+    
+    it "El titulo de Revista Comidas es menor que el titulo de libro Estampa" do
+      expect(@revista_1 <= @libro_2).to eq(true)
     end
   end
 end
