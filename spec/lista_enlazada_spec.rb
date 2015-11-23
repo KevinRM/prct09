@@ -228,5 +228,9 @@ describe ListaEnlazada do
     it "Metodo count" do
       expect(@lista_1.count).to eq(5)
     end
+    
+    it "Metodo map" do
+      expect(@lista_1.map{|i| i*i}).to eq([9,4,49,81,64])
+    end
   end
 end
