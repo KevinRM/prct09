@@ -148,4 +148,14 @@ describe ListaEnlazada do
       expect(@objeto_elect.get_url()).to eq("https://periodico.com")
     end
   end
+  
+  context "Comparaciones entre dos referencias bibliograficas por titulo" do
+    before :each do
+      @libro_1 = Libro.new("Pepe Martinez","Ave","23-11-2015","ISBN_12856336563")
+      @libro_2 = Libro.new("Marta Flores","Estampa","23-11-2015","ISBN_62856294")
+    end
+    it "El titulo Ave es menor que el titulo Estampa" do
+      expect(@libro_1 < @libro_2).to eq(true)
+    end
+  end
 end
