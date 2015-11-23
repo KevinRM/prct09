@@ -158,5 +158,9 @@ describe ListaEnlazada do
     it "El titulo Ave es menor que el titulo Estampa" do
       expect(@libro_1 < @libro_2).to eq(true)
     end
+    
+    it "El titulo Estampa es menor que el titulo Ave" do
+      expect(@libro_1 > @libro_2).to eq(false)
+    end
   end
 end
