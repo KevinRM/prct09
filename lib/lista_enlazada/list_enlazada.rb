@@ -38,7 +38,9 @@ class List
     end
     
     def each
-        if(@cabeza != @cola)
+        if(@cabeza == nil && @cola == nil)
+            yield nil
+        elsif(@cabeza != @cola)
             yield @cola.value
             @cola = @cola.next
         else
