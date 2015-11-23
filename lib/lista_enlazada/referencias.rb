@@ -1,21 +1,26 @@
 class Referencia
-   def initialize(autor,titulo,publicacion)
-       @autor = autor
-       @titulo = titulo
-       @publicacion = publicacion
-   end
+    include Comparable
+    def initialize(autor,titulo,publicacion)
+        @autor = autor
+        @titulo = titulo
+        @publicacion = publicacion
+    end
    
-   def get_autor
-       @autor
-   end
+    def get_autor
+         @autor
+    end
    
-   def get_titulo
-       @titulo
-   end
+    def get_titulo
+        @titulo
+    end
    
-   def get_publicacion
-       @publicacion
-   end
+    def get_publicacion
+        @publicacion
+    end
+    
+    def <=> (other)
+        @titulo <=> other.get_titulo()
+    end
 end
 
 class Libro < Referencia
