@@ -224,5 +224,9 @@ describe ListaEnlazada do
     it "Metodo find" do
       expect(@lista_1.find{|i| i == 3}).to eq(3)
     end
+    
+    it "Metodo count" do
+      expect(@lista_1.count).to eq(5)
+    end
   end
 end
