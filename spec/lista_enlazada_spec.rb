@@ -208,5 +208,9 @@ describe ListaEnlazada do
     it "Comprobando max" do
       expect(@lista_1.max).to eq(9)
     end
+    
+    it "Metodo sort" do
+      expect(@lista_1.sort).to eq([2,3,7,8,9])
+    end
   end
 end
