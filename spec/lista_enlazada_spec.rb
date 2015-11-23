@@ -212,5 +212,9 @@ describe ListaEnlazada do
     it "Metodo sort" do
       expect(@lista_1.sort).to eq([2,3,7,8,9])
     end
+    
+    it "Metodo drop" do
+      expect(@lista_1.drop(2)).to eq([7,9,8])
+    end
   end
 end
