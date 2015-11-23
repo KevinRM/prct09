@@ -216,5 +216,9 @@ describe ListaEnlazada do
     it "Metodo drop" do
       expect(@lista_1.drop(2)).to eq([7,9,8])
     end
+    
+    it "Metodo detect" do
+      expect(@lista_1.detect{|i| i == 7}).to eq(7)
+    end
   end
 end
