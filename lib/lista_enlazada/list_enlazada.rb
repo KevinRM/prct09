@@ -41,8 +41,10 @@ class List
         if(@cabeza == nil && @cola == nil)
             yield nil
         elsif(@cabeza != @cola)
-            yield @cola.value
-            @cola = @cola.next
+            while (@cola != nil)
+                yield @cola.value
+                @cola = @cola.next
+            end
         else
             yield @cabeza.value
         end

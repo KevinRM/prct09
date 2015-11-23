@@ -181,7 +181,7 @@ describe ListaEnlazada do
   context "Lista enumerable" do
     before :each do
       @lista_1 = List.new()
-      @lista_1.add_varios([2,3,7,9,8])
+      @lista_1.add_varios([3,2,7,9,8])
       @lista_2 = List.new()
     end
     
@@ -203,6 +203,10 @@ describe ListaEnlazada do
     
     it "Comprobando min" do
       expect(@lista_1.min).to eq(2)
+    end
+    
+    it "Comprobando max" do
+      expect(@lista_1.max).to eq(9)
     end
   end
 end
