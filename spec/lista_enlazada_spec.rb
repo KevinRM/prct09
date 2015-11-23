@@ -105,7 +105,7 @@ describe ListaEnlazada do
     end
   end
   
-  context "Pruebas para la clase de herencia Periódico" do
+  context "Pruebas para la clase de herencia Periodico" do
     before :each do
       @objeto_periodico = Periodico.new("Kevin_periodico","titulo_periodico","17-11-2015_periodico","La Laguna")
     end
