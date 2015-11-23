@@ -172,5 +172,9 @@ describe ListaEnlazada do
     it "El titulo de Documento electronico Willson es mayor o igual que el titulo de Revista Comidas" do
       expect(@doc_elect_1 >= @revista_1).to eq(true)
     end
+    
+    it "El titulo de libro Ave es igual al titulo de libro Ave" do
+      expect(@libro_1 == @libro_1).to eq(true)
+    end
   end
 end
