@@ -177,4 +177,16 @@ describe ListaEnlazada do
       expect(@libro_1 == @libro_1).to eq(true)
     end
   end
+  
+  context "Lista enumerable" do
+    before :each do
+      @lista_1 = Lista.new()
+      @lista_1.add_varios([6,8,7,5,1,9])
+      @lista_2 = Lista.new()
+    end
+    
+    it "Comprobando el metodo all con una lista con contenido" do
+      expect(@lista_1.all?).to eq(true)
+    end
+  end
 end
