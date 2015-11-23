@@ -220,5 +220,9 @@ describe ListaEnlazada do
     it "Metodo detect" do
       expect(@lista_1.detect{|i| i == 7}).to eq(7)
     end
+    
+    it "Metodo find" do
+      expect(@lista_1.find{|i| i == 3}).to eq(3)
+    end
   end
 end
