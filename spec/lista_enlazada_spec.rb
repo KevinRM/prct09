@@ -245,6 +245,9 @@ describe ListaEnlazada do
       @periodico_1 = Periodico.new(["Lopez Fausto","Locutora Pepa"],"2015","Esto es un periodico","Tenerife_periodico")
       @doc_elect_2 = Doc_elect.new(["Isciiio Marta"],"1960","Esto es un documento electronico","https://martaweb.com","Web")
       @lista = Apa.new()
+    end
+    
+    it "Añadir elementos a la lista APA" do
       @lista.add_varios([@libro_3,@revista_2,@periodico_1,@doc_elect_2])
     end
   end
