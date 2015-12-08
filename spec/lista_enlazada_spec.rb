@@ -45,11 +45,11 @@ describe ListaEnlazada do
   
   context "Pruebas de clase Referencia" do
     before :each do
-      @objeto_referencia = Referencia.new("Kevin", "Rivero","titulo_referencia","17-11-2015")
+      @objeto_referencia = Referencia.new(["Rivero Kevin"],"titulo_referencia","17-11-2015")
     end
     
     it "La clase referencia tiene un autor" do
-      expect(@objeto_referencia.get_autor()).to eq("Rivero, Kevin")
+      expect(@objeto_referencia.get_autor()).to eq(["Rivero Kevin"])
     end
     
     it "La clase referencia tiene un titulo" do
@@ -63,7 +63,7 @@ describe ListaEnlazada do
   
   context "Pruebas para la clase de herencia Libro" do
     before :each do
-      @objeto_libro = Libro.new("Estebez","Kevin_libro","17-11-2015_libro","titulo_libro","Anaya")
+      @objeto_libro = Libro.new(["Estebez Kevin_libro"],"17-11-2015_libro","titulo_libro","Anaya")
     end
     
     it "Es un objeto de herencia de la clase Referencia" do
@@ -75,7 +75,7 @@ describe ListaEnlazada do
     end
     
     it "Libro tiene un Autor" do
-      expect(@objeto_libro.get_autor()).to eq("Estebez, Kevin_libro")
+      expect(@objeto_libro.get_autor()).to eq(["Estebez Kevin_libro"])
     end
     
     it "Libro tiene un editor" do
@@ -85,7 +85,7 @@ describe ListaEnlazada do
   
   context "Pruebas para la clase de herencia Revista" do
     before :each do
-      @objeto_revista = Revista.new("Kevin_revista","titulo_revista","17-11-2015_revista","ISSN_22222")
+      @objeto_revista = Revista.new(["Exposito Kevin_revista"],"17-11-2015_revista","titulo_revista","Zalman")
     end
     
     it "Es un objeto de herencia de la clase Referencia" do
@@ -97,17 +97,17 @@ describe ListaEnlazada do
     end
     
     it "Revista tiene un Autor" do
-      expect(@objeto_revista.get_autor()).to eq("Kevin_revista")
+      expect(@objeto_revista.get_autor()).to eq(["Exposito Kevin_revista"])
     end
     
-    it "Revista tiene un ISSN" do
-      expect(@objeto_revista.get_issn()).to eq("ISSN_22222")
+    it "Revista tiene un editor" do
+      expect(@objeto_revista.get_editor()).to eq("Zalman")
     end
   end
   
   context "Pruebas para la clase de herencia Periodico" do
     before :each do
-      @objeto_periodico = Periodico.new("Kevin_periodico","titulo_periodico","17-11-2015_periodico","La Laguna")
+      @objeto_periodico = Periodico.new(["Perez Kevin_periodico"],"17-11-2015_periodico","titulo_periodico","Apuron")
     end
     
     it "Es un objeto de herencia de la clase Referencia" do
@@ -119,17 +119,17 @@ describe ListaEnlazada do
     end
     
     it "Periodico tiene un Autor" do
-      expect(@objeto_periodico.get_autor()).to eq("Kevin_periodico")
+      expect(@objeto_periodico.get_autor()).to eq(["Perez Kevin_periodico"])
     end
     
-    it "Periodico tiene un Lugar" do
-      expect(@objeto_periodico.get_lugar()).to eq("La Laguna")
+    it "Periodico tiene un periodico" do
+      expect(@objeto_periodico.get_periodico()).to eq("Apuron")
     end
   end
   
   context "Pruebas para la clase de herencia documento Electronico" do
     before :each do
-      @objeto_elect = Doc_elect.new("Kevin_documento_electronico","titulo_electronico","17-11-2015_documento_electronico","https://periodico.com")
+      @objeto_elect = Doc_elect.new(["Astro Kevin_documento_electronico"],"17-11-2015_documento_electronico","titulo_electronico","https://periodico.com","Web")
     end
     
     it "Es un objeto de herencia de la clase Referencia" do
@@ -141,20 +141,20 @@ describe ListaEnlazada do
     end
     
     it "Documento electronico tiene un Autor" do
-      expect(@objeto_elect.get_autor()).to eq("Kevin_documento_electronico")
+      expect(@objeto_elect.get_autor()).to eq(["Astro Kevin_documento_electronico"])
     end
     
-    it "Documento electronico tiene una URL" do
-      expect(@objeto_elect.get_url()).to eq("https://periodico.com")
+    it "Documento electronico tiene un lugar" do
+      expect(@objeto_elect.get_lugar()).to eq("https://periodico.com")
     end
   end
   
   context "Comparaciones entre dos referencias bibliograficas por titulo" do
     before :each do
-      @libro_1 = Libro.new("Martinez","Pepe","23-11-2015","Ave","Campitos")
-      @libro_2 = Libro.new("Flores","Marta","23-11-2015","Estampa","SP")
-      @revista_1 = Revista.new("Lola Estebez","Comidas","4-5-2008","ISSN_73445754")
-      @doc_elect_1 = Doc_elect.new("Abian Fernandez","Willson","5-1-1800","https://periodico.com/willson")
+      @libro_1 = Libro.new(["Martinez Escoba"],"23-11-2015","Ave","Campitos")
+      @libro_2 = Libro.new(["Flores Marta"],"23-11-2015","Estampa","SP")
+      @revista_1 = Revista.new(["Estebez Lola"],"4-5-2008","Comidas","ZWQ")
+      @doc_elect_1 = Doc_elect.new(["Fernandez Abian"],"5-1-1800","Willson","https://periodico.com/willson","Web")
     end
     
     it "El titulo de libro Ave es menor que el titulo de libro Estampa" do
