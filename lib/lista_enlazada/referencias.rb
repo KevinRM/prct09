@@ -7,7 +7,9 @@ class Referencia
     end
    
     def get_autor
-         @autor
+         @autor.each do |valor|
+            valor
+        end
     end
    
     def get_titulo
@@ -24,45 +26,50 @@ class Referencia
 end
 
 class Libro < Referencia
-    def initialize(autor,titulo,publicacion,isbn)
+    def initialize(autor,publicacion,titulo,editor)
         super(autor,titulo,publicacion)
-        @isbn = isbn
+        @editor = editor
     end
     
-    def get_isbn()
-        @isbn
+    def get_editor()
+        @editor
     end
 end
 
 class Revista < Referencia
-    def initialize(autor,titulo,publicacion,issn)
+    def initialize(autor,publicacion,titulo,editor)
         super(autor,titulo,publicacion)
-        @issn = issn
+        @editor = editor
     end
     
-    def get_issn()
-        @issn
+    def get_editor()
+        @editor
     end
 end
 
 class Periodico < Referencia
-    def initialize(autor,titulo,publicacion,lugar)
+    def initialize(autor,publicacion,titulo,periodico)
+        super(autor,titulo,publicacion)
+        @periodico = periodico
+    end
+    
+    def get_periodico()
+        @periodico
+    end
+end
+
+class Doc_elect < Referencia
+    def initialize(autor,publicacion,titulo,lugar,medio)
         super(autor,titulo,publicacion)
         @lugar = lugar
+        @medio = medio
     end
     
     def get_lugar()
         @lugar
     end
-end
-
-class Doc_elect < Referencia
-    def initialize(autor,titulo,publicacion,url)
-        super(autor,titulo,publicacion)
-        @url = url
-    end
     
-    def get_url()
-        @url
+    def get_medio()
+        @medio
     end
 end

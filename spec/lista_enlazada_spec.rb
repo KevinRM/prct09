@@ -45,11 +45,11 @@ describe ListaEnlazada do
   
   context "Pruebas de clase Referencia" do
     before :each do
-      @objeto_referencia = Referencia.new("Kevin","titulo_referencia","17-11-2015")
+      @objeto_referencia = Referencia.new("Kevin", "Rivero","titulo_referencia","17-11-2015")
     end
     
     it "La clase referencia tiene un autor" do
-      expect(@objeto_referencia.get_autor()).to eq("Kevin")
+      expect(@objeto_referencia.get_autor()).to eq("Rivero, Kevin")
     end
     
     it "La clase referencia tiene un titulo" do
@@ -63,7 +63,7 @@ describe ListaEnlazada do
   
   context "Pruebas para la clase de herencia Libro" do
     before :each do
-      @objeto_libro = Libro.new("Kevin_libro","titulo_libro","17-11-2015_libro","ISBN_11111")
+      @objeto_libro = Libro.new("Estebez","Kevin_libro","17-11-2015_libro","titulo_libro","Anaya")
     end
     
     it "Es un objeto de herencia de la clase Referencia" do
@@ -75,11 +75,11 @@ describe ListaEnlazada do
     end
     
     it "Libro tiene un Autor" do
-      expect(@objeto_libro.get_autor()).to eq("Kevin_libro")
+      expect(@objeto_libro.get_autor()).to eq("Estebez, Kevin_libro")
     end
     
-    it "Libro tiene un ISBN" do
-      expect(@objeto_libro.get_isbn()).to eq("ISBN_11111")
+    it "Libro tiene un editor" do
+      expect(@objeto_libro.get_editor()).to eq("Anaya")
     end
   end
   
@@ -151,8 +151,8 @@ describe ListaEnlazada do
   
   context "Comparaciones entre dos referencias bibliograficas por titulo" do
     before :each do
-      @libro_1 = Libro.new("Pepe Martinez","Ave","23-11-2015","ISBN_12856336563")
-      @libro_2 = Libro.new("Marta Flores","Estampa","23-11-2015","ISBN_62856294")
+      @libro_1 = Libro.new("Martinez","Pepe","23-11-2015","Ave","Campitos")
+      @libro_2 = Libro.new("Flores","Marta","23-11-2015","Estampa","SP")
       @revista_1 = Revista.new("Lola Estebez","Comidas","4-5-2008","ISSN_73445754")
       @doc_elect_1 = Doc_elect.new("Abian Fernandez","Willson","5-1-1800","https://periodico.com/willson")
     end
@@ -240,7 +240,8 @@ describe ListaEnlazada do
   
   context "Lista de referencias en formato APA" do
     before :each do
-      @lista = Apa.new()
+      @lista = Apa.new();
+      @libro_3 = Libro.new("P","Martinez","2008","Esto es un libro","Fuentes");
     end
   end
 end
