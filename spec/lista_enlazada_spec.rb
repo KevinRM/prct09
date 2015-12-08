@@ -237,4 +237,10 @@ describe ListaEnlazada do
       expect(@lista_1.collect{|i| i+i}).to eq([6,4,14,18,16])
     end
   end
+  
+  context "Lista de referencias en formato APA" do
+    before :each do
+      @lista = Apa.new()
+    end
+  end
 end
