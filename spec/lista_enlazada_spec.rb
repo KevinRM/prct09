@@ -239,16 +239,20 @@ describe ListaEnlazada do
   end
   
   context "Lista de referencias en formato APA" do
-    before :each do
-      @libro_3 = Libro.new(["Martinez P"],"2008","Esto es un libro","Fuentes")
-      @revista_2 = Revista.new(["Lopez Fausto","Isciiio Marta"],"2001","Esto es una revista","ZWQ")
-      @periodico_1 = Periodico.new(["Lopez Fausto","Locutora Pepa"],"2015","Esto es un periodico","Tenerife_periodico")
-      @doc_elect_2 = Doc_elect.new(["Isciiio Marta"],"1960","Esto es un documento electronico","https://martaweb.com","Web")
+    before :all do
+      @libro_3 = Libro.new(["Pepe Martinez", "Sandra Flores"],"2008","Esto es un libro","Fuentes")
+      @revista_2 = Revista.new(["Fausto Lopez","Marta Isciiio"],"2001","Esto es una revista","ZWQ")
+      @periodico_1 = Periodico.new(["Fausto Lopez","Pepa Locutora"],"2015","Esto es un periodico","Tenerife_periodico")
+      @doc_elect_2 = Doc_elect.new(["Marta Isciiio"],"1960","Esto es un documento electronico","https://martaweb.com","Web")
       @lista = Apa.new()
     end
     
     it "Añadir elementos a la lista APA" do
-      @lista.add_varios([@libro_3,@revista_2,@periodico_1,@doc_elect_2])
+      @lista.add_elementos([@libro_3,@revista_2,@periodico_1,@doc_elect_2])
+    end
+    
+    it "Obtener autores" do
+      expect(@lista.get_autores()).to eq(["Martinez Pepe","Flores Sandra"])
     end
   end
 end
