@@ -31,7 +31,7 @@ class Libro < Referencia
         @editor = editor
     end
     
-    def get_editor()
+    def get_editor
         @editor
     end
 end
@@ -42,7 +42,7 @@ class Revista < Referencia
         @editor = editor
     end
     
-    def get_editor()
+    def get_editor
         @editor
     end
 end
@@ -53,7 +53,7 @@ class Periodico < Referencia
         @periodico = periodico
     end
     
-    def get_periodico()
+    def get_periodico
         @periodico
     end
 end
@@ -65,11 +65,11 @@ class Doc_elect < Referencia
         @medio = medio
     end
     
-    def get_lugar()
+    def get_lugar
         @lugar
     end
     
-    def get_medio()
+    def get_medio
         @medio
     end
 end

@@ -4,10 +4,10 @@ class Apa < List
     end
     
     def add_elementos(x)
-        @lista.add_varios(x)
+        @lista.add_varios(array_x)
     end
     
-    def get_autores()
+    def get_autores
         valor_nodo = @lista.get_nodo()
         autores = valor_nodo.get_autor()
         array_devolver = []

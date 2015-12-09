@@ -239,20 +239,21 @@ describe ListaEnlazada do
   end
   
   context "Lista de referencias en formato APA" do
-    before :all do
+    before :each do
       @libro_3 = Libro.new(["Pepe Martinez", "Sandra Flores"],"2008","Esto es un libro","Fuentes")
       @revista_2 = Revista.new(["Fausto Lopez","Marta Isciiio"],"2001","Esto es una revista","ZWQ")
-      @periodico_1 = Periodico.new(["Fausto Lopez","Pepa Locutora"],"2015","Esto es un periodico","Tenerife_periodico")
+      @periodico_1 = Periodico.new(["Pepa Locutora","Fausto Lopez"],"2015","Esto es un periodico","Tenerife_periodico")
       @doc_elect_2 = Doc_elect.new(["Marta Isciiio"],"1960","Esto es un documento electronico","https://martaweb.com","Web")
       @lista = Apa.new()
-    end
-    
-    it "Añadir elementos a la lista APA" do
       @lista.add_elementos([@libro_3,@revista_2,@periodico_1,@doc_elect_2])
     end
     
     it "Obtener autores" do
-      expect(@lista.get_autores()).to eq(["Martinez Pepe","Flores Sandra"])
+      expect(@lista.get_autores()).to eq(["Isciiio Marta"])
+    end
+    
+    it "Las entradas de la lista deben estar ordenadas alfabeticamente por el apellido del primer autor de cada trabajo" do
+      expect(@lista.imprimir_lista()).to eq([@doc_elect_2,@periodico_1,@revista_2,@libro_3])
     end
   end
 end
