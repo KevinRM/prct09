@@ -264,8 +264,6 @@ describe ListaEnlazada do
       @revista_2 = Revista.new(["Lopez Fausto","Marta Isciiio"],"2001","esto es una revista","ZWQ")
       @periodico_1 = Periodico.new(["Locutora Pepa","Fausto Lopez"],"2015","Esto es un periodico","Tenerife_periodico")
       @doc_elect_2 = Doc_elect.new(["Isciiio Marta","Martinez Flora"],"1960","Esto es un documento electronico","https://martaweb.com","Web")
-      @lista_auxiliar = List.new()
-      @lista_auxiliar.add_varios([@doc_elect_2,@periodico_1,@revista_2,@libro_3])
       
       expect(@apa.ordenar_lista()).to eq([@doc_elect_2,@periodico_1,@revista_2,@libro_3])
     end
