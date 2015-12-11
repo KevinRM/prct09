@@ -1,5 +1,7 @@
 - Pruebas en Travis: [![Build Status](https://travis-ci.org/KevinRM/prct09.svg)](https://travis-ci.org/KevinRM/prct09)
 
+- Coverall: [![Coverage Status](https://coveralls.io/repos/KevinRM/prct09/badge.svg?branch=master&service=github)](https://coveralls.io/github/KevinRM/prct09?branch=master)
+
 - Kevin Miguel Rivero Martin
 
 - Asignatura: Lenguajes y Paradigmas de la programación
