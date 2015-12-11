@@ -1,5 +1,6 @@
 class Referencia
     include Comparable
+    attr_accessor :autor, :titulo, :publicacion
     def initialize(autor,titulo,publicacion)
         @autor = autor
         @titulo = titulo
@@ -21,7 +22,11 @@ class Referencia
     end
     
     def <=> (other)
-        @titulo <=> other.get_titulo()
+        if(@autor[0] != other.autor[0])
+            @autor[0] <=> other.autor[0]
+        else
+            @publicacion <=> other.publicacion
+        end
     end
 end
 

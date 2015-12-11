@@ -157,23 +157,23 @@ describe ListaEnlazada do
       @doc_elect_1 = Doc_elect.new(["Fernandez Abian"],"5-1-1800","Willson","https://periodico.com/willson","Web")
     end
     
-    it "El titulo de libro Ave es menor que el titulo de libro Estampa" do
-      expect(@libro_1 < @libro_2).to eq(true)
+    it "El autor de libro Ave es menor que el autor de libro Estampa" do
+      expect(@libro_1 < @libro_2).to eq(false)
     end
     
-    it "El titulo de libro Estampa es menor que el titulo de libro Ave" do
-      expect(@libro_1 > @libro_2).to eq(false)
+    it "El autor de libro Estampa es menor que el autor de libro Ave" do
+      expect(@libro_1 > @libro_2).to eq(true)
     end
     
-    it "El titulo de Revista Comidas es menor o igual que el titulo de libro Estampa" do
+    it "El autor de Revista Comidas es menor o igual que el autor de libro Estampa" do
       expect(@revista_1 <= @libro_2).to eq(true)
     end
     
-    it "El titulo de Documento electronico Willson es mayor o igual que el titulo de Revista Comidas" do
+    it "El autor de Documento electronico Willson es mayor o igual que el autor de Revista Comidas" do
       expect(@doc_elect_1 >= @revista_1).to eq(true)
     end
     
-    it "El titulo de libro Ave es igual al titulo de libro Ave" do
+    it "El autor de libro Ave es igual al autor de libro Ave" do
       expect(@libro_1 == @libro_1).to eq(true)
     end
   end
@@ -239,21 +239,48 @@ describe ListaEnlazada do
   end
   
   context "Lista de referencias en formato APA" do
-    before :each do
+    before :all do
       @libro_3 = Libro.new(["Pepe Martinez", "Sandra Flores"],"2008","Esto es un libro","Fuentes")
-      @revista_2 = Revista.new(["Fausto Lopez","Marta Isciiio"],"2001","Esto es una revista","ZWQ")
+      @revista_2 = Revista.new(["Fausto Lopez","Marta Isciiio"],"2001","esto es una revista","ZWQ")
       @periodico_1 = Periodico.new(["Pepa Locutora","Fausto Lopez"],"2015","Esto es un periodico","Tenerife_periodico")
-      @doc_elect_2 = Doc_elect.new(["Marta Isciiio"],"1960","Esto es un documento electronico","https://martaweb.com","Web")
-      @lista = Apa.new()
-      @lista.add_elementos([@libro_3,@revista_2,@periodico_1,@doc_elect_2])
+      @doc_elect_2 = Doc_elect.new(["Marta Isciiio","Flora Martinez"],"1960","Esto es un documento electronico","https://martaweb.com","Web")
+      
+      @lista = List.new()
+      @lista.add_varios([@libro_3,@revista_2,@periodico_1,@doc_elect_2])
+      
+      @apa = Apa.new(@lista)
     end
     
     it "Obtener autores" do
-      expect(@lista.get_autores()).to eq(["Isciiio Marta"])
+      expect(@apa.get_autores(@libro_3.get_autor())).to eq(["Martinez Pepe", "Flores Sandra"])
     end
     
     it "Las entradas de la lista deben estar ordenadas alfabeticamente por el apellido del primer autor de cada trabajo" do
-      expect(@lista.imprimir_lista()).to eq([@doc_elect_2,@periodico_1,@revista_2,@libro_3])
+      expect(@apa.ordenar_autores()).to eq(nil)
+    end
+    
+    it "Lista ordenada por el primer apellido del primer autor o por fecha de publicacion" do
+      @libro_3 = Libro.new(["Martinez Pepe", "Flores Sandra"],"2008","Esto es un libro","Fuentes")
+      @revista_2 = Revista.new(["Lopez Fausto","Marta Isciiio"],"2001","esto es una revista","ZWQ")
+      @periodico_1 = Periodico.new(["Locutora Pepa","Fausto Lopez"],"2015","Esto es un periodico","Tenerife_periodico")
+      @doc_elect_2 = Doc_elect.new(["Isciiio Marta","Martinez Flora"],"1960","Esto es un documento electronico","https://martaweb.com","Web")
+      @lista_auxiliar = List.new()
+      @lista_auxiliar.add_varios([@doc_elect_2,@periodico_1,@revista_2,@libro_3])
+      
+      expect(@apa.ordenar_lista()).to eq([@doc_elect_2,@periodico_1,@revista_2,@libro_3])
+    end
+    
+    it "Apersand en lugar de y o and" do
+      expect(@apa.ampersand(@libro_3.autor)).to eq("Martinez Pepe & Flores Sandra")
+    end
+    
+    it "Sangria francesa" do
+      expect(@apa.to_s).to eq("     Isciiio Marta, Martinez Flora")
+    end
+    
+    it "Poner en mayuscula el inicio del titulo de revista" do
+      @revista_3 = Revista.new(["Lopez Fausto","Marta Isciiio"],"2001","Esto es una revista","ZWQ")
+      expect(@apa.poner_mayuscula(@revista_2)).to eq(@revista_3)
     end
   end
 end
